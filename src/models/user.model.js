@@ -50,13 +50,13 @@ const userSchema = new Schema(
 }, { timestamps: true }  // Automatically adds createdAt and updatedAt fields
 )
 
-userSchema.pre("save",async function(next) {
+userSchema.pre("save",async function(next) {  // .pre hook to hash the password before saving it
     if(!this.isModified("password")) return next() // If password is not modified, skip hashing
     this.password = bcrypt.hash(this.password, 10) // Hash the password before saving it
     next() // Continue with saving the user
 })
 userSchema.methods.isPasswordCorrect = async function(password) {
-    return await bcrypt.compare(password, this.password) // Compare the hashed password with the provided password
+    return await bcrypt.compare(password, this.password) // Compare the hashed password with the provided password 
 }
 
 userSchema.methods.generateAccessToken = function() {
