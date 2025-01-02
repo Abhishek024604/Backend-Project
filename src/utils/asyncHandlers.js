@@ -1,3 +1,4 @@
+//standard wrapper functions for handling requests and responses in express.js
 //method 1 using promises
 
 const asyncHandler = (requestHandler)=>{
