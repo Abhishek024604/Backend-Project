@@ -15,4 +15,11 @@ app.use(express.urlencoded({extended:true,limit:"16kb"}))  // encodes incoming r
 app.use(express.static("public"))  // serves static files from a specified directory.
 
 app.use(cookieParser())  // parses cookies from the client request.
+
+//routes import
+import userRouter from './routes/user.routes.js'
+
+//routes declaration
+
+app.use('/api/v1/users', userRouter)  //transfers control to the userRouter (user.routes.js)when a request is made to /users
 export { app  }
