@@ -29,7 +29,7 @@ const userSchema = new Schema(
         type:String,  // Assuming a URL to an image
        required:true
        },
-       coverimage:{
+       coverImage:{
         type:String,  // Assuming a URL to an image
        },
        watchHistory:[
@@ -43,10 +43,9 @@ const userSchema = new Schema(
         required:[true, "Password is required"],
        },
        refreshToken:{
-        type:String // For JWT authentication
+        type:String // For JWT authentication .Access token valid for short period
        }
-
-
+       
 }, { timestamps: true }  // Automatically adds createdAt and updatedAt fields
 )
 
